@@ -12,4 +12,4 @@ pool:
 container: registry.videolan.org:5000/vlc-debian-win32:latest
 
 steps:
-- script: git clone https://github.com/mfkl/docker-vlc-build && cd docker-vlc-build && ./build.sh
+- script: git clone https://github.com/mfkl/docker-vlc-build && cd docker-vlc-build && chmod +x build.sh && ./build.sh

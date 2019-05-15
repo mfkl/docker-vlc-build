@@ -6,10 +6,12 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
+jobs:
+  - job: win32
+    pool:
+      vmImage: 'ubuntu-latest'
+    timeoutInMinutes: 0
+    container: registry.videolan.org:5000/vlc-debian-win32:latest
 
-container: registry.videolan.org:5000/vlc-debian-win32:latest
-
-steps:
-- script: git clone https://github.com/mfkl/docker-vlc-build && cd docker-vlc-build && chmod +x build.sh && ./build.sh
+    steps:
+    - script: git clone https://github.com/mfkl/docker-vlc-build && cd docker-vlc-build && chmod +x build.sh && ./build.sh

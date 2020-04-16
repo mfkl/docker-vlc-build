@@ -11,7 +11,7 @@ jobs:
     pool:
       vmImage: 'ubuntu-latest'
     timeoutInMinutes: 0
-    container: registry.videolan.org:5000/vlc-debian-win32:latest
+    container: registry.videolan.org/vlc-debian-llvm-mingw:20190621125349
 
     steps:
-    - script: git clone https://github.com/mfkl/docker-vlc-build && cd docker-vlc-build && chmod +x build.sh && ./build.sh
+    - script: git clone https://github.com/videolan/vlc && cd vlc && ./extras/package/win32/build.sh -d

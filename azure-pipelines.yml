@@ -1,14 +1,8 @@
-trigger:
-- master
+pool:
+  name: Azure Pipelines
+steps:
+- bash: |   
+   docker run -v pwd:/t registry.videolan.org/vlc-debian-llvm-mingw:20190621125349 /bin/bash -c "cd ~/ && mkdir code && cd code && git clone https://github.com/videolan/vlc && cd vlc && ./extras/package/win32/build.sh -d"
+   
+  displayName: 'Build llvm-mingw'
 
-jobs:
-  - job: win64_llvm
-    pool:
-      vmImage: 'ubuntu-latest'
-    timeoutInMinutes: 0
-    container: 
-      image: registry.videolan.org/vlc-debian-llvm-mingw:20190621125349
-      options: --user 499
-
-    steps:
-    - script: git clone https://github.com/videolan/vlc/ && cd vlc && ./extras/package/win32/build.sh -d

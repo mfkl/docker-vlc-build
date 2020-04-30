@@ -8,4 +8,4 @@ jobs:
     timeoutInMinutes: 0
 
     steps:
-    - script: docker run -v pwd:/t registry.videolan.org/vlc-debian-llvm-mingw:20190621125349 /bin/bash -c "cd ~/ && mkdir code && cd code && git clone https://github.com/videolan/vlc && cd vlc && ./extras/package/win32/build.sh -d || cat win64/config.log
+    - script: docker run -v pwd:/t registry.videolan.org/vlc-debian-llvm-mingw:20190621125349 /bin/bash -c "cd ~/ && mkdir code && cd code && git clone https://github.com/videolan/vlc && cd vlc && ./extras/package/win32/build.sh -d || cat win64/config.log"
